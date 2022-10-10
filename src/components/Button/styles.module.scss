@@ -1,0 +1,30 @@
+.button{
+    width: 100%;
+    height: 4.5rem;
+    border-radius: 8px;
+    color: var(--white);
+    background: var(--red);
+    border: none;
+    &[disabled]{
+        cursor: not-allowed;
+        svg{
+            animation: animate 1s infinite;
+        }
+    }
+
+    &hover{
+        filter:brightness(1.08)
+    }
+}
+
+.buttonText{
+
+}
+
+@keyframes animate {
+    from{
+        transform: rotate(0deg);
+    } to{
+        transform: rotate(360deg);
+    }
+}
