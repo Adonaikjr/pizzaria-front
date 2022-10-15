@@ -5,26 +5,36 @@ import Image from 'next/image'
 import { Input } from '../components/Input'
 import { Button } from '../components/Button'
 import { FormEvent, useState } from 'react'
-import { FieldsetHTMLAttributes } from 'react'
 import Link from 'next/link'
 
 import { useContext } from 'react'
-import { Auth_context } from '../context/auth_context'
+import { AuthContext } from '../context/AuthContext'
+
 
 export default function Home() {
 
-  const { login } = useContext(Auth_context)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const { signIn } = useContext(AuthContext)
 
   async function handleFormlogin(event: FormEvent) {
-
     event.preventDefault()
 
+    if (email === '' || password === '') {
+      alert('preencha todos os campos')
+      return
+    }
+    setLoading(true);
+    
     let data = {
-      email: 'teste@teste.com',
-      password: '123'
+      email,
+      password,
     }
 
-    await login(data)
+    await signIn(data)
+    setLoading(false)
   }
 
 
@@ -39,11 +49,20 @@ export default function Home() {
         </div>
         <form className={styles.form} onSubmit={handleFormlogin} >
           <fieldset className={styles.fieldset} >
+
             <label>E-mail</label>
-            <Input placeholder='Digite seu email' type='email' />
+            <Input
+              placeholder='Digite seu email'
+              type='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} />
             <label>Senha</label>
-            <Input placeholder='digite sua senha' type='password' />
-            <Button type="submit">
+            <Input
+              placeholder='digite sua senha'
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} />
+            <Button loading={loading} >
               Entrar
             </Button>
             <Link href='/cadastro'>

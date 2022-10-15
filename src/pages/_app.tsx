@@ -1,12 +1,12 @@
 import { AppProps } from 'next/app';
 import '../../styles/globals.scss';
-import { ReturnAuthContextProvider } from '../context/auth_context'
+import { AuthProvider } from '../context/AuthContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ReturnAuthContextProvider>
+    <AuthProvider>
       <Component {...pageProps} />
-    </ReturnAuthContextProvider>
+    </AuthProvider>
   )
 }
 
