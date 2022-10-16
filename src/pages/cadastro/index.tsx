@@ -7,6 +7,7 @@ import { Button } from '../../components/Button'
 import { FormEvent, useContext, useState } from 'react'
 import Link from 'next/link'
 import { AuthContext } from '../../context/AuthContext'
+import { toast } from 'react-toastify'
 
 export default function Cadastro() {
   const { signUp } = useContext(AuthContext)
@@ -18,7 +19,7 @@ export default function Cadastro() {
   async function handleSignUp(event: FormEvent) {
     event.preventDefault();
     if (name === '' || email === '' || password === '') {
-      alert('preencha todos os campos')
+      toast('Preencha todos os campos', { theme: "light"})
       return;
     }
 

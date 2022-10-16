@@ -9,7 +9,8 @@ import Link from 'next/link'
 
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
-
+import { toast } from 'react-toastify';
+import { notAuth } from '../utils/notAuth'
 
 export default function Home() {
 
@@ -23,7 +24,7 @@ export default function Home() {
     event.preventDefault()
 
     if (email === '' || password === '') {
-      alert('preencha todos os campos')
+      toast.error('preencha todos os campos')
       return
     }
     setLoading(true);
@@ -75,3 +76,11 @@ export default function Home() {
     </>
   )
 }
+
+export const getServerSideProps = notAuth(async (ctx) => {
+  return {
+    props: {
+      
+    }
+  }
+} )

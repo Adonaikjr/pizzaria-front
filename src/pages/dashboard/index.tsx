@@ -1,3 +1,5 @@
+import { yesAuth } from "../../utils/yesAuth"
+
 export default function Dashboard() {
     return (
         <div>
@@ -5,3 +7,9 @@ export default function Dashboard() {
         </div>
  )
 }
+
+export const getServerSideProps = yesAuth(async (ctx) => {
+    return {
+        props:{}
+    }
+} )
