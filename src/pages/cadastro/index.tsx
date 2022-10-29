@@ -17,17 +17,17 @@ export default function Cadastro() {
   const [loading, setLoading] = useState(false)
 
   async function handleSignUp(event: FormEvent) {
-    event.preventDefault();
+    event.preventDefault()
     if (name === '' || email === '' || password === '') {
-      toast('Preencha todos os campos', { theme: "light"})
-      return;
+      toast('Preencha todos os campos', { theme: 'light' })
+      return
     }
 
     setLoading(true)
-    let data = {
+    const data = {
       name,
       email,
-      password
+      password,
     }
     await signUp(data)
     setLoading(false)
@@ -38,41 +38,37 @@ export default function Cadastro() {
       <Head>
         <title>SujeitoPizza - faca seu Cadastro</title>
       </Head>
-      <main className={styles.containerMain} >
+      <main className={styles.containerMain}>
         <div className={styles.container}>
-          <Image src={logo} alt='logo pizzaria' />
+          <Image src={logo} alt="logo pizzaria" />
         </div>
         <form className={styles.form} onSubmit={handleSignUp}>
-          <fieldset className={styles.fieldset} >
+          <fieldset className={styles.fieldset}>
             <label>Nome</label>
             <Input
-              placeholder='Digite seu nome'
-              type='text'
+              placeholder="Digite seu nome"
+              type="text"
               value={name}
-              onChange={(e) => setName(e.target.value)} />
+              onChange={(e) => setName(e.target.value)}
+            />
             <label>E-mail</label>
             <Input
-              placeholder='Digite seu email'
-              type='email'
+              placeholder="Digite seu email"
+              type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)} />
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <label>Senha</label>
             <Input
-              placeholder='digite sua senha'
-              type='password'
+              placeholder="digite sua senha"
+              type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)} />
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-            <Button
-              loading={loading} >
-              Cadastrar
-            </Button>
-            <Link href='/'>
-
-              <a
-                className={styles.text}>
-                Login
-              </a>
+            <Button loading={loading}>Cadastrar</Button>
+            <Link href="/">
+              <a className={styles.text}>Login</a>
             </Link>
           </fieldset>
         </form>

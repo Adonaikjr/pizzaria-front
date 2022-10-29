@@ -1,0 +1,33 @@
+.containerHeader{
+    border: solid transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    @media(max-width: 600px) {
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+.containerUl{
+    border:solid transparent;
+    display:flex;
+
+    list-style: none;
+    gap: 2rem;
+    display:flex;
+    align-items: center;
+    a {
+
+        transition: color 0.7s;
+        &:hover {
+            color: var(--red)
+        }
+    }
+    
+}
+.containerImage {
+    cursor: pointer;
+}

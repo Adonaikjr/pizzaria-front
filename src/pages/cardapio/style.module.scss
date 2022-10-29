@@ -1,0 +1,81 @@
+
+.containerMain {
+    margin-top: 2rem;
+border: solid transparent;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100%;
+border: solid transparent;
+h1{
+    border: solid transparent;
+    width: 80%;
+}
+}
+.containerForm{
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 1rem;
+border: solid transparent;
+width: 80%;
+}
+
+.containerLabel {
+    background-color: var( --dark_900 );
+    border-radius: 5px;
+    width: 100%;
+height: 30rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    input{
+        display: none; 
+    }
+     span{
+            z-index: 99;
+            position: absolute;
+            opacity: 0.7;
+            transition: all 0.5s;
+            
+        }
+        span:hover{
+                opacity: 1;
+                transform: scale(1.2);
+        }
+
+}
+
+.containerInput, .containerSelect, .containerButton, .containerTextarea {
+    height: 5rem;
+    width: 100%;
+    border-radius: 5px;
+    background-color: var( --dark_900 );
+    color: var(--white);
+    border: none;
+}
+
+.containerInput, .containerTextarea{
+    padding: 1rem;
+}
+.containerTextarea {
+    height: 7rem;
+}
+.containerButton {
+height: 6rem;
+background-color: var( --green_900 );
+border-radius: 5px;
+border: solid transparent;
+color: var( --dark_900 );
+
+font-size: 1.2rem;
+}
+
+.containerImage {
+    width: 100%;
+    height: 100%;
+}
